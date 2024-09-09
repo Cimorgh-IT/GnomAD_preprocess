@@ -21,14 +21,14 @@ fi
 #change running directory
 cd ${input_dir}
 
-# Loop through each file with the pattern "*.bgz.gz" in the input directory
-for file in "$input_dir"/*.bgz.gz; do
+# Loop through each file with the pattern "*.bgz" in the input directory
+for file in "$input_dir"/*.bgz; do
   if [ -f "$file" ]; then
     echo "Processing file: $file"
     
-    base_name=$(basename "$file" .vcf.bgz.gz)
+    base_name=$(basename "$file" .vcf.bgz)
     #unzip from .gz format
-    gzip -d $file
+    #gzip -d $file
     #unzip from .bgz format
     bgzip -d -c ${base_name}.vcf.bgz > ${base_name}.vcf
 
